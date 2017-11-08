@@ -1,9 +1,9 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!
 
   def index
-    @notes = Note.all.order(created_at: :desc)
+    @notes = current_user.notes.order(created_at: :desc)
   end
 
   def show
@@ -47,6 +47,6 @@ class NotesController < ApplicationController
   end
 
   def set_note
-    @note = Note.find(params[:id])
+    @note = current_user.notes.find(params[:id])
   end
 end
