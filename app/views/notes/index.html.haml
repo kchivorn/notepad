@@ -1,5 +1,8 @@
-%h1 All Notes
-
-= render @notes
-
-= link_to 'New Note', new_note_path
+.wrapper_with_padding
+  #notes.clearfix
+    - unless @notes.blank?
+      = render @notes
+    - else
+      %h2 Add a note
+      %p It appears you haven't created any notes yet... Let's create one now.
+      %button= link_to 'New Note', new_note_path
