@@ -1,7 +1,8 @@
-%h1= @note.title
-%p= @note.content
+.wrapper_with_padding
+  #note_show
+    %h1.title= @note.title
+    %p= simple_format @note.content
 
-= link_to 'Back', notes_path
-- if user_signed_in? && @note.user == current_user
-  = link_to 'Edit', edit_note_path
-  = link_to 'Delete', note_path, method: :delete, data: { confirm: 'Are you sure?'}
+    .buttons
+      = link_to 'Edit', edit_note_path, class: 'button'
+      = link_to 'Delete', note_path, method: :delete, data: { confirm: 'Are you sure?'}, class: 'button'
