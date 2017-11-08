@@ -1,3 +1,32 @@
-%h1 Welcome
+#banner
+  .banner_content
+    %h1 Welcome
+    %p Your online notepad, Never forget an idea again.
+    %button= link_to 'Sign Up', new_user_registration_path
 
-= link_to 'New Note', new_note_path
+#testimonial
+  .wrapper
+    %p.quote "The greatest notepad application. Period."
+    %p.name - Chivorn Kouch
+
+#callouts
+  .callout_inner
+    .wrapper
+      .callout
+        %h2 Notes
+        %p Viral Echo Park Intelligentsia Viral Echo Park IntelligentsiaViral Echo Park Intelligentsia
+      .callout
+        %h2 Notes
+        %p Viral Echo Park Intelligentsia Viral Echo Park IntelligentsiaViral Echo Park Intelligentsia
+      .callout
+        %h2 Notes
+        %p Viral Echo Park Intelligentsia Viral Echo Park IntelligentsiaViral Echo Park Intelligentsia
+
+#bottom_cta
+  .wrapper
+    %h2 For Realz!
+    %p I want you to sign up...!
+    %button= link_to 'Click Meee!!!', new_user_registration_path
+
+%footer
+  %p &copy; Chivorn Kouch
