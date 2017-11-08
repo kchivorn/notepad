@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @notes = Note.all.order(created_at: :desc)
@@ -10,11 +11,11 @@ class NotesController < ApplicationController
   end
 
   def new
-    @note = Note.new
+    @note = current_user.notes.new
   end
 
   def create
-    @note = Note.new(note_params)
+    @note = current_user.notes.new(note_params)
     if @note.save
       redirect_to @note, notice: "The note was created successfully."
     else
